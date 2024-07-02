@@ -2,6 +2,7 @@ import re
 import os
 import logging
 import urllib.parse
+from unidecode import unidecode
 
 from mkdocs.plugins import BasePlugin
 import mkdocs.utils
@@ -81,7 +82,7 @@ class RoamLinkReplacer:
         """Convert to gfw title / anchor
         see: https://gist.github.com/asabaylus/3071099#gistcomment-1593627"""
         if title:
-            title = title.strip().lower()
+            title = unidecode(title.strip().lower())
             title = re.sub(r'[^\w\u4e00-\u9fff\- ]', "", title)
             title = re.sub(r' +', "-", title)
             return title
@@ -143,7 +144,8 @@ class RoamLinkReplacer:
         # Construct the return link
         # Windows escapes "\" unintentionally, and it creates incorrect links, so need to replace with "/"
         rel_link_url = rel_link_url.replace("\\", "/")
-
+        if alias.startswith('#'):
+            alias = alias[1:]
         if filename:
             if alias:
                 link = f'[{alias}](<{rel_link_url}>)'

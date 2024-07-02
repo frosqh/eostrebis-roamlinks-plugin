@@ -4,7 +4,7 @@ import pytest
 
 from mkdocs.structure.files import File
 from mkdocs.structure.pages import Page
-from mkdocs_roamlinks_plugin.plugin import RoamLinksPlugin
+from mkdocs_roamlinks_eostrebis_plugin.plugin import RoamLinksPlugin
 
 
 @pytest.fixture

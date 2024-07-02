@@ -1,18 +1,19 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='mkdocs-roamlinks-plugin',
-    version='0.3.2',
+    name='mkdocs-roamlinks-eostrebis-plugin',
+    version='0.2.0',
     description='An MkDocs plugin',
     long_description='An MkDocs plugin that automagically generates relative links and convert roamlike links for foam and obsidian between markdown pages',
     keywords='mkdocs',
-    url= 'https://github.com/Jackiexiao/mkdocs-roamlinks-plugin',
-    author='jackiexiao',
-    author_email='707610215@qq.com',
+    url= 'https://github.com/Jackiexiao/eostrebis-roamlinks-plugin',
+    author='frosqh',
+    author_email='frosqh@gmail.com',
     license='MIT',
     python_requires='>=3.6',
     install_requires=[
         'mkdocs>=1.0.4',
+        'unidecode>=1.3.8'
     ],
     extras_require={
         'dev': [ 'pytest']
@@ -29,7 +30,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'mkdocs.plugins': [
-            'roamlinks = mkdocs_roamlinks_plugin.plugin:RoamLinksPlugin',
+            'roamlinks-eostrebis = mkdocs_roamlinks_eostrebis_plugin.plugin:RoamLinksPlugin',
         ]
     }
 )
