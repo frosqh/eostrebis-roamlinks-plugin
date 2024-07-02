@@ -146,6 +146,8 @@ class RoamLinkReplacer:
         rel_link_url = rel_link_url.replace("\\", "/")
         if alias.startswith('#'):
             alias = alias[1:]
+        if title.startswith('#'):
+            title = title[1:]
         if filename:
             if alias:
                 link = f'[{alias}](<{rel_link_url}>)'
@@ -163,7 +165,8 @@ class RoamLinkReplacer:
             link = f'{link}{{ height="{height}" }}'
         elif width and height:
             link = f'{link}{{ width="{width}"; height="{height}" }}'
-
+        if 'champ' in link:
+            print("INFO ♫ : ", link)
         return link
 
 
